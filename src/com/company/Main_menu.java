@@ -8,12 +8,11 @@ public class Main_menu extends JDialog {
     private JPanel contentPane;
     private JButton altexButton;
     private JButton emagButton;
-    private JButton buttonOK;
-    private JButton buttonCancel;
 
     public Main_menu() {
         setContentPane(contentPane);
         setModal(true);
+
 
         emagButton.addActionListener(new ActionListener() {
             @Override
@@ -42,11 +41,13 @@ public class Main_menu extends JDialog {
                 setVisible(false);
             }
         });
+        dispose();
     }
 
     public static void main(String[] args) {
         Main_menu dialog = new Main_menu();
         dialog.pack();
         dialog.setVisible(true);
+        dialog.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
     }
 }

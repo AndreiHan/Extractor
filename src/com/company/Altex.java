@@ -61,11 +61,13 @@ public class Altex {
                         break;
                     }
                     for (Element image : images) {
+                        /*
                         System.out.println(Nume + i + "/");
                         System.out.println("\nsrc : " + image.attr("src"));
                         System.out.println("height : " + image.attr("height"));
                         System.out.println("width : " + image.attr("width"));
                         System.out.println("alt : " + image.attr("alt"));
+                        */
 
                         String ok = image.attr("alt");
 
@@ -76,7 +78,6 @@ public class Altex {
 
                             shout.println("");
                         }
-
                     }
                     if (images.attr("alt").isEmpty())
                         break;

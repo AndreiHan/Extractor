@@ -12,11 +12,13 @@ public class Shop extends JFrame {
     private JCheckBox PCUriCheckBox;
     private JButton backButton;
     private JButton startButton;
+    private JProgressBar progressBar1;
 
     public Shop(int shop) {
         int currentShop = shop;
         setContentPane(panel1);
-
+        progressBar1.setVisible(true);
+        progressBar1.setIndeterminate(true);
         startButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -24,6 +26,9 @@ public class Shop extends JFrame {
             }
 
             private void onPress() {
+
+                progressBar1.setIndeterminate(true);
+
                 if (currentShop == 1) {
                     if (laptopuriCheckBox.isSelected()) {
                         Emag.getLaptop();
@@ -51,6 +56,9 @@ public class Shop extends JFrame {
                         Altex.getTelevizoare();
                     }
                 }
+                progressBar1.setIndeterminate(false);
+                progressBar1.setValue(100);
+                System.out.println("Done!");
             }
         });
 
@@ -65,7 +73,10 @@ public class Shop extends JFrame {
                 Main_menu dialog = new Main_menu();
                 dialog.pack();
                 dialog.setVisible(true);
+                dialog.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
             }
         });
+
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 }
